@@ -48,7 +48,7 @@ func CreateLoadBalancerTCPListener(c *gin.Context) {
 	var param struct {
 		SlbId             string `form:"slbId" binding:"required"`
 		ListenerPort      int    `form:"listenerPort" binding:"required"`
-		BackendServerPort int    `form:"listenerPort" binding:"required"`
+		BackendServerPort int    `form:"backendServerPort" binding:"required"`
 	}
 	err := c.ShouldBind(&param)
 	if app.HandleError(c, err) {
