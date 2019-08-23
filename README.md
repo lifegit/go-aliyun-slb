@@ -47,4 +47,4 @@ conf/base.toml 配置好相关信息
     删除slb
     http://localhost:5555/api/slb/DeleteLoadBalancer?slbId=?
     参数
-    slbId               要删除的slb的id
+        slbId               要删除的slb的id

@@ -27,8 +27,8 @@ func CreateLoadBalancer(c *gin.Context) {
 func AddBackendServers(c *gin.Context) {
 	// 接收参数
 	var param struct {
-		SlbId string `binding:"slbId"`
-		EcsId string `binding:"ecsId"`
+		SlbId string `form:"slbId" binding:"required"`
+		EcsId string `form:"ecsId" binding:"required"`
 	}
 	err := c.ShouldBind(&param)
 	if app.HandleError(c, err) {
@@ -46,9 +46,9 @@ func AddBackendServers(c *gin.Context) {
 func CreateLoadBalancerTCPListener(c *gin.Context) {
 	// 接收参数
 	var param struct {
-		SlbId             string `binding:"slbId"`
-		ListenerPort      int    `binding:"listenerPort"`
-		BackendServerPort int    `binding:"backendServerPort"`
+		SlbId             string `form:"slbId" binding:"required"`
+		ListenerPort      int    `form:"listenerPort" binding:"required"`
+		BackendServerPort int    `form:"listenerPort" binding:"required"`
 	}
 	err := c.ShouldBind(&param)
 	if app.HandleError(c, err) {
@@ -66,8 +66,8 @@ func CreateLoadBalancerTCPListener(c *gin.Context) {
 func StartLoadBalancerListener(c *gin.Context) {
 	// 接收参数
 	var param struct {
-		SlbId        string `binding:"slbId"`
-		ListenerPort int    `binding:"listenerPort"`
+		SlbId        string `form:"slbId" binding:"required"`
+		ListenerPort int    `form:"listenerPort" binding:"required"`
 	}
 	err := c.ShouldBind(&param)
 	if app.HandleError(c, err) {
@@ -85,7 +85,7 @@ func StartLoadBalancerListener(c *gin.Context) {
 func DeleteLoadBalancer(c *gin.Context) {
 	// 接收参数
 	var param struct {
-		SlbId string `binding:"slbId"`
+		SlbId string `form:"slbId" binding:"required"`
 	}
 	err := c.ShouldBind(&param)
 	if app.HandleError(c, err) {
