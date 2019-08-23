@@ -1,0 +1,10 @@
+
+*.exe
+*.log
+conf/prod
+.idea/*
+.idea
+.vscode/*
+.vscode
+aliyun-slb-api
+main
