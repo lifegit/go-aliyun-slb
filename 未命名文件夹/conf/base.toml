@@ -1,0 +1,10 @@
+# toml 转 struct : https://github.com/xuri/toml-to-go
+
+[app]
+    port = 5555
+
+[aliyun]
+    access_key_id = ""
+    access_key_secret = ""
+    [aliyun.slb]
+        regin_id = "cn-hangzhou" #slb地域

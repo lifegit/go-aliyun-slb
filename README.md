@@ -1,4 +1,4 @@
-# Aliyun-SLB-Api
+# go-aliyun-slb
 
 #### 介绍
 使用阿里云SDK对SLB(负载均衡)进行创建，添加监听端口，释放

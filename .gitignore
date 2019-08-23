@@ -6,5 +6,5 @@ conf/prod
 .idea
 .vscode/*
 .vscode
-aliyun-slb-api
+go-aliyun-slb
 main
