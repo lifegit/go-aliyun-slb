@@ -20,7 +20,9 @@ conf/base.toml 配置好相关信息
 #### API
     创建slb:
     http://localhost:5555/api/slb/CreateLoadBalancer
-
+    参数
+        internetChargeType   计费方式 eg: 按带宽计费:paybybandwidth  按流量计费:paybytraffic
+        bandwidth            带宽峰值,单位:M
 
     添加后端服务器
     http://localhost:5555/api/slb/AddBackendServers?slbId=?&ecsId=?

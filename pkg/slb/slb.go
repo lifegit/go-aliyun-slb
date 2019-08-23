@@ -72,9 +72,11 @@ func StartLoadBalancerListener(balancerId string, listenerPort int) (response *s
 /**
 创建slb
 */
-func CreateLoadBalancer() (response *slb.CreateLoadBalancerResponse, err error) {
+func CreateLoadBalancer(internetChargeType string, bandwidth int) (response *slb.CreateLoadBalancerResponse, err error) {
 	request := slb.CreateCreateLoadBalancerRequest()
 	request.Scheme = "https"
+	request.InternetChargeType = internetChargeType
+	request.Bandwidth = requests.NewInteger(bandwidth)
 
 	response, err = client.CreateLoadBalancer(request)
 

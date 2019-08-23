@@ -16,7 +16,12 @@ func init() {
 }
 
 func CreateLoadBalancer(c *gin.Context) {
-	res, err := slb.CreateLoadBalancer()
+	// 接收参数
+	var param struct {
+		InternetChargeType string `form:"internetChargeType" binding:"required,eq=paybybandwidth|eq=paybytraffic`
+		Bandwidth          int    `form:"bandwidth" binding:"required,numeric`
+	}
+	res, err := slb.CreateLoadBalancer(param.InternetChargeType, param.Bandwidth)
 	if app.JsonErrorMapData(c, res.GetHttpContentString(), err) {
 		return
 	}
