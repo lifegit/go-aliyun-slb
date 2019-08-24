@@ -61,3 +61,4 @@ conf/base.toml 配置好相关信息
         rr      主机记录,如果要解析@.exmaple.com，主机记录要填写”@”。
         type    解析记录类型，例:A
         value   记录值
+        ttl     解析时间

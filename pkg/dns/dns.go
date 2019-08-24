@@ -1,6 +1,7 @@
 package dns
 
 import (
+	"github.com/aliyun/alibaba-cloud-sdk-go/sdk/requests"
 	"github.com/aliyun/alibaba-cloud-sdk-go/services/alidns"
 	"go-aliyun-slb/pkg/conf"
 	"go-aliyun-slb/pkg/logging/normalLogging"
@@ -20,7 +21,7 @@ func init() {
 /**
 更新DNS解析
 */
-func UpdateDomainRecord(recordId, rr, typee, value string) (response *alidns.UpdateDomainRecordResponse, err error) {
+func UpdateDomainRecord(recordId, rr, typee, value string, ttl int) (response *alidns.UpdateDomainRecordResponse, err error) {
 	request := alidns.CreateUpdateDomainRecordRequest()
 	request.Scheme = "https"
 
@@ -28,6 +29,7 @@ func UpdateDomainRecord(recordId, rr, typee, value string) (response *alidns.Upd
 	request.RR = rr
 	request.Type = typee
 	request.Value = value
+	request.TTL = requests.NewInteger(ttl)
 
 	response, err = client.UpdateDomainRecord(request)
 

@@ -18,13 +18,14 @@ func UpdateDomainRecord(c *gin.Context) {
 		RR       string `form:"rr" binding:"required"`
 		Type     string `form:"type" binding:"required"`
 		Value    string `form:"value" binding:"required"`
+		Ttl      int    `form:"ttl" binding:"required"`
 	}
 	err := c.ShouldBind(&param)
 	if app.HandleError(c, err) {
 		return
 	}
 
-	res, err := dns.UpdateDomainRecord(param.RecordId, param.RR, param.Type, param.Value)
+	res, err := dns.UpdateDomainRecord(param.RecordId, param.RR, param.Type, param.Value, param.Ttl)
 	if app.JsonErrorMapData(c, res.GetHttpContentString(), err) {
 		return
 	}
