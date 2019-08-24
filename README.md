@@ -18,6 +18,8 @@ conf/base.toml 配置好相关信息
     5.删除slb
 
 #### API
+##### SLB:
+
     创建slb:
     http://localhost:5555/api/slb/CreateLoadBalancer
     参数
@@ -50,3 +52,12 @@ conf/base.toml 配置好相关信息
     http://localhost:5555/api/slb/DeleteLoadBalancer?slbId=?
     参数
         slbId               要删除的slb的id
+     
+##### DNS   
+    修改解析记录
+    http://localhost:5555/api/dns/UpdateDomainRecord?recordId=?&rr=?&type=?&value=?
+    参数
+        recordId 解析记录的ID
+        rr      主机记录,如果要解析@.exmaple.com，主机记录要填写”@”。
+        type    解析记录类型，例:A
+        value   记录值
